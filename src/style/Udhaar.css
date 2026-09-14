@@ -1,0 +1,123 @@
+/* ==========================================================================
+   Udhaar page
+   Requires common.css (tokens, animations, .customer-avatar, .search-box,
+   .empty-state) as well.
+   ========================================================================== */
+
+@keyframes expandDown {
+  from { opacity: 0; transform: translateY(-4px) scaleY(0.96); }
+  to { opacity: 1; transform: translateY(0) scaleY(1); }
+}
+
+.dues-summary-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: linear-gradient(135deg, #1a2029 0%, #2a1418 100%);
+  color: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 22px 24px;
+  margin-bottom: 22px;
+  box-shadow: var(--shadow-card-hover);
+}
+
+.dues-summary-card svg {
+  color: var(--danger);
+  flex-shrink: 0;
+}
+
+.dues-summary-card > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dues-summary-card span {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.dues-summary-card strong {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.dues-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  animation: fadeInUp 0.22s var(--ease) both;
+}
+
+.dues-item-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: background-color 0.15s var(--ease);
+}
+
+.dues-item-header:hover {
+  background: var(--canvas);
+}
+
+.dues-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+}
+
+.dues-item-info h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.dues-item-info p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.dues-item-amount {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.dues-item-amount span {
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+.dues-item-amount strong {
+  font-size: 15px;
+  color: var(--danger-strong);
+  font-weight: 700;
+}
+
+.dues-item-header > svg:last-child {
+  color: var(--text-faint);
+  flex-shrink: 0;
+}
+
+.dues-item-body {
+  padding: 16px;
+  border-top: 1px solid var(--border);
+  background: var(--canvas);
+  animation: expandDown 0.2s var(--ease);
+  transform-origin: top;
+}

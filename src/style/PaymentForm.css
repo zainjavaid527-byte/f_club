@@ -1,0 +1,129 @@
+/* PaymentForm.css */
+
+/* Hidden on screen — only ever shown via @media print below.
+   Since the receipt is portaled to document.body, this class
+   applies wherever the receipt actually lives in the DOM. */
+.receipt-print {
+  display: none;
+}
+
+@media print {
+  /* Physical paper size = full roll width (per spec: 79.5±0.5mm) */
+  @page {
+    size: 80mm auto;
+    margin: 0;
+  }
+
+  html, body {
+    width: 80mm;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+
+  /* Hide the entire app tree. Change '#root' below if your app's
+     root element uses a different id (check index.html). The
+     receipt is NOT inside this element — it's a sibling, portaled
+     directly into <body> — so this never hides/clips it. */
+  #root {
+    display: none !important;
+  }
+
+  /* Actual printable content area = 72mm (per spec sheet's
+     "Print Width" field), centered within the 80mm roll so the
+     printer's own side margins line up correctly. */
+  .receipt-print {
+    display: block;
+    width: 72mm;
+    margin: 0 auto;
+    padding: 4px 0;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.4;
+    color: #000;
+    background: #fff;
+  }
+
+  .receipt-print .receipt-header {
+    text-align: center;
+  }
+
+  .receipt-print .receipt-header h2 {
+    margin: 0;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .receipt-print .receipt-header p {
+    margin: 2px 0;
+    font-size: 11px;
+  }
+
+  .receipt-print .receipt-customer {
+    text-align: center;
+    margin: 4px 0;
+    font-size: 13px;
+  }
+
+  .receipt-print hr {
+    border: none;
+    border-top: 1px dashed #000;
+    margin: 6px 0;
+  }
+
+  .receipt-print .receipt-section {
+    margin-bottom: 4px;
+  }
+
+  .receipt-print .receipt-section-title {
+    margin: 4px 0 2px;
+    font-weight: bold;
+    font-size: 11px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #000;
+    padding-bottom: 2px;
+  }
+
+  .receipt-print .receipt-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 2px 0;
+  }
+
+  .receipt-print .receipt-row span:last-child {
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .receipt-print .receipt-bold {
+    font-weight: bold;
+    font-size: 13px;
+  }
+
+  .receipt-print .receipt-footer {
+    text-align: center;
+    margin-top: 8px;
+    font-size: 11px;
+  }
+
+  .receipt-print .receipt-credit {
+    margin-top: 8px;
+    text-align: center;
+    font-size: 10px;
+    color: #444;
+  }
+
+  .receipt-print .receipt-credit p {
+    margin: 1px 0;
+  }
+}
+
+.receipt-print {
+  display: none;
+}
+
+@media print {
+  .receipt-print {
+    display: block;
+  }
+}

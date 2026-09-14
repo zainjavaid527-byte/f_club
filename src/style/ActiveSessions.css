@@ -1,0 +1,99 @@
+/* ==========================================================================
+   Active Sessions page
+   Requires common.css (tokens, animations, .customer-avatar, .search-box,
+   .empty-state) as well.
+   ========================================================================== */
+
+.session-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.session-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.18s var(--ease), box-shadow 0.18s var(--ease);
+  animation: fadeInUp 0.25s var(--ease) both;
+}
+
+.session-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.session-card-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.session-card-top h3 {
+  margin: 0 0 3px;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.session-card-top p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.session-amount {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--canvas);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+}
+
+.session-amount span {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.session-amount strong {
+  font-size: 15.5px;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.open-session {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  font-weight: 600;
+  font-size: 13px;
+  text-decoration: none;
+  transition: background-color 0.15s var(--ease), gap 0.15s var(--ease), color 0.15s var(--ease);
+}
+
+.open-session:hover {
+  background: var(--accent);
+  color: #ffffff;
+  gap: 9px;
+}
+
+@media (max-width: 640px) {
+  .session-grid {
+    grid-template-columns: 1fr;
+  }
+}
